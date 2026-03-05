@@ -1,8 +1,8 @@
 import { OpenAI } from 'openai';
 import { z } from 'zod';
-import { prisma } from '@/lib/prisma';
+import { db } from '@/lib/db';
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 // Input validation schema
 const ChatRequestSchema = z.object({
@@ -84,9 +84,7 @@ export async function POST(req: Request) {
             return new Response('Unauthorized', { status: 401 });
         }
 
-        const user = await prisma.user.findUnique({
-            where: { email: session.user.email }
-        });
+        const user = await db.user.findUnique({ email: session.user.email });
 
         if (!user) {
             return new Response('User not found', { status: 404 });
@@ -123,33 +121,27 @@ export async function POST(req: Request) {
             // Create title from first message (truncated)
             const title = lastUserMsg.content.slice(0, 50) + (lastUserMsg.content.length > 50 ? '...' : '');
 
-            const newHistory = await prisma.chatHistory.create({
-                data: {
-                    userId: user.id,
-                    title: title,
-                }
+            const newHistory = await db.chatHistory.create({
+                userId: user.id,
+                title: title,
             });
             historyId = newHistory.id;
         } else {
             // Verify ownership
-            const history = await prisma.chatHistory.findUnique({
-                where: { id: historyId }
-            });
+            const history = await db.chatHistory.findUnique({ id: historyId });
 
             if (!history || history.userId !== user.id) {
-                // If not found or not owned, deny or create new. 
-                // For now, let's treat invalid ID as "create new" to be resilient, 
+                // If not found or not owned, deny or create new.
+                // For now, let's treat invalid ID as "create new" to be resilient,
                 // or error out. Erroring is safer.
                 // return new Response('Chat not found', { status: 404 });
 
                 // Resilient approach: Create new
                 const lastUserMsg = messages[messages.length - 1];
                 const title = lastUserMsg.content.slice(0, 50) + (lastUserMsg.content.length > 50 ? '...' : '');
-                const newHistory = await prisma.chatHistory.create({
-                    data: {
-                        userId: user.id,
-                        title: title,
-                    }
+                const newHistory = await db.chatHistory.create({
+                    userId: user.id,
+                    title: title,
                 });
                 historyId = newHistory.id;
             }
@@ -158,12 +150,10 @@ export async function POST(req: Request) {
         // Save User Message
         const lastUserMsg = messages[messages.length - 1];
         if (lastUserMsg.role === 'user' && historyId) {
-            await prisma.chatMessage.create({
-                data: {
-                    chatId: historyId,
-                    role: 'user',
-                    content: lastUserMsg.content
-                }
+            await db.chatMessage.create({
+                chatId: historyId,
+                role: 'user',
+                content: lastUserMsg.content
             });
         }
 
@@ -222,12 +212,10 @@ export async function POST(req: Request) {
 
                     // Save AI Message after stream ends
                     if (historyId && fullAiResponse) {
-                        await prisma.chatMessage.create({
-                            data: {
-                                chatId: historyId,
-                                role: 'assistant',
-                                content: fullAiResponse
-                            }
+                        await db.chatMessage.create({
+                            chatId: historyId,
+                            role: 'assistant',
+                            content: fullAiResponse
                         });
                     }
 

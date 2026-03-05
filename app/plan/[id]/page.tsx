@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/db";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ShoppingList from "@/components/ShoppingList";
@@ -10,23 +10,7 @@ export const revalidate = 60;
 // Cached query for single diet plan
 const getDietPlanById = unstable_cache(
     async (id: string) => {
-        return prisma.dietPlan.findUnique({
-            where: { id },
-            select: {
-                id: true,
-                title: true,
-                description: true,
-                duration: true,
-                difficulty: true,
-                calories: true,
-                protein: true,
-                carbs: true,
-                fats: true,
-                benefits: true,
-                restrictions: true,
-                meals: true,
-            },
-        });
+        return db.dietPlan.findUnique({ id });
     },
     ['diet-plan-detail'],
     { revalidate: 60, tags: ['diet-plans'] }

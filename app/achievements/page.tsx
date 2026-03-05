@@ -159,7 +159,7 @@ export default function AchievementsPage() {
                         { value: stats.totalWaterGlasses, icon: '💧', label: 'WATER', bg: 'bg-blue-300', delay: 0.2 },
                         { value: stats.totalMealsLogged, icon: '🍽️', label: 'MEALS', bg: 'bg-green-300', delay: 0.3 },
                         { value: stats.perfectDays, icon: '✨', label: 'PERFECT', bg: 'bg-purple-300', delay: 0.4 },
-                    ].map((stat, index) => (
+                    ].map((stat) => (
                         <div
                             key={stat.label}
                             className={`${stat.bg} border-2 border-black p-2 text-center animate-scale-in`}

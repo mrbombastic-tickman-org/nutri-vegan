@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 
@@ -10,9 +10,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: "Missing fields" }, { status: 400 });
         }
 
-        const existingUser = await prisma.user.findUnique({
-            where: { email }
-        });
+        const existingUser = await db.user.findUnique({ email });
 
         if (existingUser) {
             return NextResponse.json({ error: "Email already exists" }, { status: 400 });
@@ -20,13 +18,11 @@ export async function POST(request: Request) {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const user = await prisma.user.create({
-            data: {
-                email,
-                name,
-                password: hashedPassword,
-                image: `https://api.iconify.design/mdi:account-circle.svg?color=%23000000`, // Default avatar
-            }
+        const user = await db.user.create({
+            email,
+            name,
+            password: hashedPassword,
+            image: `https://api.iconify.design/mdi:account-circle.svg?color=%23000000`, // Default avatar
         });
 
         return NextResponse.json({ user });

@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/db";
 import DietPlanCard from "@/components/DietPlanCard";
 import DietPlanGrid from "@/components/DietPlanGrid";
 import Link from "next/link";
@@ -11,34 +11,7 @@ export const dynamic = 'force-dynamic';
 // Cached query for category with diet plans
 const getCategoryBySlug = unstable_cache(
     async (slug: string) => {
-        return prisma.category.findUnique({
-            where: { slug },
-            select: {
-                id: true,
-                name: true,
-                slug: true,
-                description: true,
-                icon: true,
-                color: true,
-                dietPlans: {
-                    select: {
-                        id: true,
-                        title: true,
-                        description: true,
-                        duration: true,
-                        difficulty: true,
-                        calories: true,
-                        protein: true,
-                        carbs: true,
-                        fats: true,
-                        benefits: true,
-                        dietType: true,
-                        categoryId: true,
-                    },
-                    orderBy: { createdAt: 'desc' },
-                },
-            },
-        });
+        return db.category.findUnique({ slug });
     },
     ['category-detail-v3'],
     { revalidate: 60, tags: ['categories', 'diet-plans'] }

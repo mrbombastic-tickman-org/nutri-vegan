@@ -37,7 +37,7 @@ Format your response as JSON with this structure:
 Only respond with valid JSON, no markdown or extra text.`;
 
         // Build message payload
-        let messages: any[] = [
+        const messages: Record<string, unknown>[] = [
             { role: 'system', content: systemPrompt }
         ];
 
