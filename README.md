@@ -44,15 +44,10 @@ Follow these steps to set up the project on a new machine.
     NEXTAUTH_URL="http://localhost:3000"
     ```
 
-4.  **Database Setup:**
-    Push the database schema to your database instance:
-    ```bash
-    npx prisma db push
-    ```
-    *(Optional) Seed the database if needed:*
-    ```bash
-    npm run db:seed
-    ```
+### 4. Database Connection
+Since the database is hosted on Neon and the project uses a custom `pg` wrapper, **no local database setup or migrations are required.**
+
+Simply ensure your `DATABASE_URL` in `.env.local` is correct, and the application will connect to the existing schema and data.
 
 5.  **Run the development server:**
     ```bash

@@ -58,17 +58,12 @@ NEXTAUTH_SECRET="your_random_secret_here"
 NEXTAUTH_URL="http://localhost:3000"
 ```
 
-### 4. Database Setup
-Since this project uses a custom `pg` wrapper (`lib/db.ts`), ensure your Neon database has the following tables created:
-- `users`
-- `categories`
-- `diet_plans`
-- `chat_histories`
-- `chat_messages`
-- `user_metrics`
+### 4. Database Setup (Zero Action Required)
+The database is fully managed on Neon. Since you are using a custom `pg` wrapper and the schema is already live on the cloud:
+- **Do NOT** run any migrations.
+- **Do NOT** run any database initialization commands.
 
-> [!NOTE]
-> If you have a migration SQL file or schema dump, run it against your Neon console.
+Your existing data and tables (`users`, `categories`, `diet_plans`, etc.) are already available once the `DATABASE_URL` is set.
 
 ### 5. Start Development Server
 ```bash
