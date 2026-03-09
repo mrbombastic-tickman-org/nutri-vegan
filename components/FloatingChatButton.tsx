@@ -11,7 +11,7 @@ export default function FloatingChatButton() {
 
   return (
     <div className="fixed right-4 bottom-24 z-50">
-      <Link href="/chat" aria-label="Chat with AI nutritionist">
+      <Link href="/chat" aria-label="Chat with NutriVegan AI">
         <button
           className="group relative flex items-center justify-center w-[55px] h-[55px] rounded-full border-[3px] border-black bg-[#FF004D] pt-[3px] shadow-[4px_4px_0_rgba(0,0,0,0.8)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[6px_6px_0_rgba(0,0,0,0.8)] active:translate-y-0.5 active:shadow-[2px_2px_0_rgba(0,0,0,0.8)]"
           type="button"

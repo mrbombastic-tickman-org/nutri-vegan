@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
 
         const response = await fetch(ddgUrl, {
             headers: {
-                'User-Agent': 'DietPlanApp/1.0',
+                'User-Agent': 'NutriVegan/1.0',
             },
         });
 

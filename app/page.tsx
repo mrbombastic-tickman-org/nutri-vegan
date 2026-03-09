@@ -57,7 +57,7 @@ export default async function HomePage() {
             {/* Retro Header Section */}
             <header className="mb-8 border-b-4 border-retro-border pb-4 text-center bg-retro-paper p-4 shadow-retro animate-slide-up">
                 <h1 className="text-4xl font-bold text-retro-primary mb-2 tracking-widest uppercase filter drop-shadow-[2px_2px_0_var(--shadow-color)]">
-                    DietPlan.EXE
+                    NutriVegan
                 </h1>
                 <div className="inline-block bg-retro-border text-retro-paper px-2 py-1 font-mono text-sm typing-effect">
                     SYSTEM_READY... OK
@@ -129,7 +129,7 @@ export default async function HomePage() {
             {/* Quick Access / Footer */}
             <section className="animate-fade-in" style={{ animationDelay: '0.5s' }}>
                 <div className="text-center font-mono text-xs text-retro-muted border-t-2 border-retro-muted pt-4 mt-8">
-                    © 2026 DIET_CORP // V.1.0.0
+                    © 2026 NUTRIVEGAN // V.1.0.0
                     <br />
                     <span className="animate-pulse">MEMORY: 64KB OK</span>
                 </div>

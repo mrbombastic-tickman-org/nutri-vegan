@@ -18,29 +18,29 @@ const vt323 = VT323({
 export const metadata: Metadata = {
     // ... existing metadata ...
     title: {
-        default: "DietPlan.EXE - AI-Powered Retro Nutrition",
-        template: "%s | DietPlan.EXE",
+        default: "NutriVegan - AI-Powered Nutrition",
+        template: "%s | NutriVegan",
     },
-    description: "Personalized AI-powered diet plans for medical, fitness, beauty, and athletic goals. Retro 8-bit experience meets modern nutrition science.",
-    keywords: ["diet plan", "nutrition", "AI", "health", "fitness", "meal planning", "weight loss", "muscle gain"],
-    authors: [{ name: "DietPlan Team" }],
-    creator: "DietPlan.EXE",
-    publisher: "DietPlan.EXE",
+    description: "Personalized AI-powered diet plans for medical, fitness, beauty, and athletic goals.",
+    keywords: ["diet plan", "nutrition", "AI", "health", "fitness", "meal planning", "weight loss", "vegan"],
+    authors: [{ name: "NutriVegan Team" }],
+    creator: "NutriVegan",
+    publisher: "NutriVegan",
 
     // Open Graph
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://dietplan.exe",
-        siteName: "DietPlan.EXE",
-        title: "DietPlan.EXE - AI-Powered Retro Nutrition",
-        description: "Personalized AI-powered diet plans with a retro 8-bit twist.",
+        url: "https://nutrivegan.app",
+        siteName: "NutriVegan",
+        title: "NutriVegan - AI-Powered Nutrition",
+        description: "Personalized AI-powered diet plans.",
         images: [
             {
                 url: "/og-image.png",
                 width: 1200,
                 height: 630,
-                alt: "DietPlan.EXE Preview",
+                alt: "NutriVegan Preview",
             },
         ],
     },
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
     // Twitter Card
     twitter: {
         card: "summary_large_image",
-        title: "DietPlan.EXE - AI-Powered Retro Nutrition",
-        description: "Personalized AI-powered diet plans with a retro 8-bit twist.",
+        title: "NutriVegan - AI-Powered Nutrition",
+        description: "Personalized AI-powered diet plans.",
         images: ["/og-image.png"],
     },
 
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     appleWebApp: {
         capable: true,
         statusBarStyle: "default",
-        title: "DietPlan.EXE",
+        title: "NutriVegan",
     },
 
     // Icons

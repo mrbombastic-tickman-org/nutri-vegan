@@ -17,7 +17,7 @@ export default function Header() {
                 <Link
                     href="/"
                     className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-retro-primary focus:ring-offset-2 rounded-sm"
-                    aria-label="DietPlan.EXE - Go to homepage"
+                    aria-label="NutriVegan - Go to homepage"
                 >
                     <span className="text-2xl" aria-hidden="true">🥗</span>
                     <h1
@@ -29,7 +29,7 @@ export default function Header() {
                                 : '3px 3px 0 rgba(0,0,0,0.2)'
                         }}
                     >
-                        DietPlan.EXE
+                        NutriVegan
                     </h1>
                 </Link>
 

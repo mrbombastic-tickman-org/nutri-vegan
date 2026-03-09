@@ -71,7 +71,7 @@ export default function ChatPage() {
     const [messages, setMessages] = useState<Message[]>([
         {
             role: 'assistant',
-            content: "🥗 WELCOME TO AI NUTRITIONIST!\n\nI create PERSONALIZED diet plans for:\n• Weight Loss / Gain\n• Muscle Building\n• Glowing Skin & Beauty\n• Athletic Performance\n• Medical Conditions\n\nWhat kind of diet plan do you need today?",
+            content: "🥗 WELCOME TO NUTRIVEGAN AI!\n\nI create PERSONALIZED diet plans for:\n• Weight Loss / Gain\n• Muscle Building\n• Glowing Skin & Beauty\n• Athletic Performance\n• Medical Conditions\n\nWhat kind of diet plan do you need today?",
         },
     ]);
 
@@ -260,7 +260,7 @@ export default function ChatPage() {
                         ← BACK
                     </Link>
                     <div className="text-center">
-                        <h1 className="text-lg font-bold uppercase">AI Nutritionist</h1>
+                        <h1 className="text-lg font-bold uppercase">NutriVegan AI</h1>
                         <div className="text-xs flex items-center justify-center gap-2">
                             <span className="w-2 h-2 bg-green-500 animate-pulse rounded-full"></span>
                             ONLINE

@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
             messages: [
                 {
                     role: 'system',
-                    content: `Analyze AI nutritionist responses and extract form fields.
+                    content: `Analyze NutriVegan AI responses and extract form fields.
 
 OUTPUT FORMAT (JSON only, no other text):
 {

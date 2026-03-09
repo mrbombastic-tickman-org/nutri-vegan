@@ -1,6 +1,6 @@
 {
-    "name": "Diet Plan AI",
-    "short_name": "DietAI",
+    "name": "NutriVegan",
+    "short_name": "NutriVegan",
     "description": "Personalized AI Diet & Nutrition Planner",
     "start_url": "/",
     "display": "standalone",

@@ -16,7 +16,7 @@ export default function NotFound() {
 
                 {/* Terminal Output */}
                 <div className="bg-black text-green-400 p-4 font-mono text-sm text-left mb-6 border-2 border-gray-600">
-                    <div className="text-gray-500 mb-1">C:\DIETPLAN\</div>
+                    <div className="text-gray-500 mb-1">C:\NUTRIVEGAN\</div>
                     <div className="text-yellow-400">&gt; DIR /S</div>
                     <div className="text-red-400 mt-2">
                         ERROR: The specified path was not found.
